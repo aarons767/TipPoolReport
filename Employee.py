@@ -2,27 +2,27 @@
 
 class Employee:
     
-    def __init___(self, netsale, name, cctips, gratuity, cashtips):
+    def __init__(self, netsale, name, cctips, gratuity, cashtips):
         self.name = name
         self.cctips = cctips
         self.gratuity = gratuity
         self.cashtips = cashtips
         self.netsale = netsale
 
-    def get_name(self, cashtips):
-        return self.cashtips
+    def get_name(self):
+        return self.name
     
-    def get_cctips(self, cctips):
+    def get_cctips(self):
         return self.cctips
     
-    def get_gratuity(self, gratuity):
+    def get_gratuity(self):
         return self.gratuity
     
-    def get_cash(self, cashtips):
+    def get_cash(self):
         return self.cashtips
 
-    def get_netsale(self, cashtips):
-        return self.cashtips
+    def get_netsale(self):
+        return self.netsale
 
 
 
