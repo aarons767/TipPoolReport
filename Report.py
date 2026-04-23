@@ -63,7 +63,19 @@ class Report:
 
         kithost_payout = (cash_pv*self.KITCHEN_HOST_PV) + (cc_pv*self.KITCHEN_HOST_PV) + (grat_pv*self.KITCHEN_HOST_PV)
 
+        print(f"\n{30*'-'} Employee Report {30*'-'}\n")
+
+       
 
 
-        print(f"Employee.     Cash Tips.     CC Tips.     Gratuity\n")
+
+        print(f"{'Employee':<17}{'Net Sale':<17}{'Cash Tips':<17}{'Credit Card Tips':<17} {'Gratuity':>17}\n")
+
+        for this_employee in self.employees:
+            print(f"Name: {this_employee.name:<17.2f}NetSale: {this_employee.netsale:<17.2f}Cash Tips: {this_employee.netsale:<17.2f} Gratuity: {this_employee.netsale:>17.2f}") 
+
+
+        
+        print(f"\n{35*'-'} Tip Out {35*'-'}\n")
+
         print(f"Servers:     {(cash_pv*self.SERVER_PV)}       {(cc_pv*self.SERVER_PV)}      {(grat_pv*self.SERVER_PV)}")

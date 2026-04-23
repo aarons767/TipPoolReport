@@ -12,6 +12,7 @@ def main():
 
         if(employeeadd == 'y'):
             name = input("Name:  ")
+            position = input("Position:  ")
             netsale = float(input("NetSale:  "))
             cctips = float(input("Credit Card tips:  "))
             cashtips = float(input("Cash Tips:  "))
@@ -21,7 +22,7 @@ def main():
 
             print("")
             
-            emp = Employee(netsale, name, cctips, grat, cashtips)
+            emp = Employee(netsale, name, cctips, grat, cashtips, position)
             employees.append(emp)
         else:
             break
@@ -30,7 +31,6 @@ def main():
     report1.compute()
         
    
-
 
 if __name__ == '__main__':
     main()
