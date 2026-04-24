@@ -10,6 +10,7 @@ def main():
 
         employeeadd = input("Create new employee? (y/n)")
 
+
         if(employeeadd == 'y'):
             name = input("Name:  ")
             position = input("Position:  ")

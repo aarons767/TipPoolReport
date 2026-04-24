@@ -43,6 +43,23 @@ class Report:
         totalcctips = self.compute_totalCCTips()
         totalgrat = self.compute_totalGrat()
         totalcash = self.compute_totalCash()
+        
+        print(f"\n{30*'-'} Employee Report {30*'-'}\n")
+        print(f"{'Employee':<17}{'Position':<17}{'Net Sale':<17}{'Cash Tips':<17}{'Credit Card Tips':<17} {'Gratuity':>17}\n")
+        
+        for this_employee in self.employees:
+            if(this_employee.position.casefold() == "Server" or this_employee.position.casefold() == "Bartender"):
+                self.total_points+=9
+            if(this_employee.position.casefold() == "Runner"):
+                self.total_points+=6
+            if(this_employee.position.casefold() == "Expo"):
+                self.total_points+=7
+            if(this_employee.position.casefold() == "Kitchen" or this_employee.position.casefold() == "Host"):
+                self.total_points+=3
+            if(this_employee.position.casefold() == "Busser"):
+                self.total_points+=5
+
+            print(f"{this_employee.name:<17}{this_employee.position:<17}{this_employee.netsale:<17}{this_employee.cashtips:<17}{this_employee.cctips:<17}{this_employee.gratuity:>13}") 
 
         if self.total_points == 0:
             print("Total points is 0. Can't compute.")
@@ -63,19 +80,21 @@ class Report:
 
         kithost_payout = (cash_pv*self.KITCHEN_HOST_PV) + (cc_pv*self.KITCHEN_HOST_PV) + (grat_pv*self.KITCHEN_HOST_PV)
 
-        print(f"\n{30*'-'} Employee Report {30*'-'}\n")
-
        
 
 
-
-        print(f"{'Employee':<17}{'Net Sale':<17}{'Cash Tips':<17}{'Credit Card Tips':<17} {'Gratuity':>17}\n")
-
-        for this_employee in self.employees:
-            print(f"Name: {this_employee.name:<17.2f}NetSale: {this_employee.netsale:<17.2f}Cash Tips: {this_employee.netsale:<17.2f} Gratuity: {this_employee.netsale:>17.2f}") 
-
+      
 
         
         print(f"\n{35*'-'} Tip Out {35*'-'}\n")
 
-        print(f"Servers:     {(cash_pv*self.SERVER_PV)}       {(cc_pv*self.SERVER_PV)}      {(grat_pv*self.SERVER_PV)}")
+        print(f"{'Employee':<17}{'Cash Tips':>15}{'CC Tips':>15}{'Gratuity':>15}")
+
+        print(f"{'Servers':<17}{cash_pv*self.SERVER_PV:>15.2f}{cc_pv*self.SERVER_PV:>15.2f}{grat_pv*self.SERVER_PV:>15.2f}")
+        print(f"{'Runner':<17}{cash_pv*self.RUNNER_PV:>15.2f}{cc_pv*self.RUNNER_PV:>15.2f}{grat_pv*self.RUNNER_PV:>15.2f}")
+        print(f"{'Expo':<17}{cash_pv*self.EXPO_PV:>15.2f}{cc_pv*self.EXPO_PV:>15.2f}{grat_pv*self.EXPO_PV:>15.2f}")
+        print(f"{'Busser':<17}{cash_pv*self.BUSSER_PV:>15.2f}{cc_pv*self.BUSSER_PV:>15.2f}{grat_pv*self.BUSSER_PV:>15.2f}")
+        print(f"{'Kitchen/Host':<17}{cash_pv*self.KITCHEN_HOST_PV:>15.2f}{cc_pv*self.KITCHEN_HOST_PV:>15.2f}{grat_pv*self.KITCHEN_HOST_PV:>15.2f}")
+
+
+        
